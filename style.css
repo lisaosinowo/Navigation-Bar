@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%; /* Take up 100% of the container width */
+    height: 100%; /* Take up 100% of the container height */
+    object-fit: cover; /* Cover the container while preserving the aspect ratio */
+  }
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(123, 161, 149);
+}
+
+.logo {
+    color: azure;
+    text-transform: uppercase; /* Makes everything upper case */
+    letter-spacing: 5px; /* Space between each letter */
+    font-size: 23px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none; /* This removes the list bullet points */
+}
+
+.nav-links a {
+    color: azure;
+    text-decoration: none; /* This removes the underline of the 4 nav links */
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 2px;
+    background-color: azure;
+    margin: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 60%;
+    }
+  }
+  
+@media screen and (max-width: 800px) {
+/* Your styles for screens with a width of 800 pixels or less */
+    body {
+        overflow-x: hidden; /* This stops the horizontal scrolling */
+    }
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgb(123, 161, 149);
+        display: flex;
+        flex-direction: column; /* The nav will be in column form when the screen is narrow. E.g for mobile */
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%); /* This moves the mobile nav bar off of the screen to the right */
+        transition: transform 0.5s ease-in;
+
+    }
+    .nav-links li {
+        opacity: 0; /* This removes the nav bar options so they cannot be seen (yet) */
+    }
+    .burger {
+        display: block;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+}
+  
